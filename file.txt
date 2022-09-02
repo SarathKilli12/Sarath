@@ -1,0 +1,40 @@
+#program to insert student details
+f=open("student.txt","wt")
+n=int(input("enter no of students:"))
+for i in range(n):
+    a=input()
+    f.write(a+"\n")
+f.close()
+#retrieve the student name using rollno
+f=open("stuedent.txt","rt")
+num=input("enter the register no:")
+print("the name of the student is:")
+for i in f:
+    if num==i.split()[1]:
+        print(i.split()[0])
+f.close()
+#retrieve the student no using name
+f=open("student.txt","rt")
+name=input("enter the name of the student:")
+print("register no is:")
+for i in f:
+    if name==i.split()[0]:
+        print(i.split()[1])
+f.close()
+#add new student details into a file
+f=open("student.txt","a")
+s=input("enter student details:")
+f.write(s)
+f.close()
+#to delete student details from file
+f=open("student.txt",'r')
+lines = f.readlines()
+f=open("student.txt",'w')
+n=input("enter name:")
+for line in lines:
+    # find() returns -1 if no match is found
+    if line.find(n) != -1:
+        pass
+    else:
+        f.write(line)
+f.close()
